@@ -1,18 +1,26 @@
 import React from 'react';
+import Article from './Article';
+class NYTList extends React.Component {
 
-const NYTList = (props) => {
-  console.log(props)
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  const monthName = months[props.month]
-  const objArray = props.test.response.docs.map((article) => (article.headline.main))
-  return (
-    <div>
-    <b>Here is a list of New York Times articles from {monthName} of {props.year}:</b>
+  monthName = () => {
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+   return months[this.props.month]
+  }
+
+  articleArray = (props) => (this.props.test.response.docs.slice(0,10))
+
+render() {
+  const month = this.monthName()
+  const articleArray = this.articleArray()
+    return (
+      <div>
+      <b>Here is a list of New York Times articles from {month} of {this.props.year}:</b>
       <ul>
-      {objArray.map((article) => (<li>{article}</li>)) }
+      {articleArray.map((articleObject) => (<Article url={articleObject.web_url} headline={articleObject.headline.main} />))}
       </ul>
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
 export default NYTList;
