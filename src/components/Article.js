@@ -3,7 +3,7 @@ import React from 'react';
 const Article = (props) => {
   return (
     <div>
-      <li><a href={props.url}>{props.headline}</a></li>
+      <li className="list-group-item list-group-item-light"><a href={props.url}>{props.headline}</a></li>
     </div>
   )
 }
