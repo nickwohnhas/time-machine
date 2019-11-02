@@ -16,7 +16,7 @@
     "react-scripts": "0.9.x",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
-    "yarn": "^1.15.2"
+    "yarn": "^1.17.3"
   },
   "devDependencies": {},
   "scripts": {
